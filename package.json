@@ -1,5 +1,5 @@
 {
-  "name": "@baam/scaffolding-tools",
+  "name": "scaffolding-tools",
   "version": "1.0.0",
   "description": "This is a tools for scaffolding widget ,page and template",
   "main": "index.js",
