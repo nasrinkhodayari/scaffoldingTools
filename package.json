@@ -1,0 +1,21 @@
+{
+  "name": "@baam/scaffolding-tools",
+  "version": "1.0.0",
+  "description": "This is a tools for scaffolding widget ,page and template",
+  "main": "index.js",
+  "scripts": {
+    "test": "run test"
+  },
+  "author": "Nasrin",
+  "license": "ISC",
+  "dependencies": {
+    "copy-dir": "^1.1.0",
+    "fs": "0.0.1-security",
+    "mkdirp": "^0.5.1",
+    "replace-in-file": "^4.1.1"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "scaffolding"
+  ]
+}
