@@ -1,0 +1,110 @@
+{namespace templates_template-name}
+
+/**
+ * Blank Page Template
+ * @param item Item in context
+ */
+{template .template-name}
+<!DOCTYPE html>
+
+{let $direction: isNonnull($item.preferences.direction.value) ? $item.preferences.direction.value : 'ltr' /}
+
+<html class="{$ij.designmode ? 'bd-designMode-true' : ''}" dir="{$direction}">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    {if isNonnull($item.preferences.title)}
+        <title>{$item.preferences.title.value}</title>
+    {/if}
+
+    // Preferences for SEO added when the option Enable SEO is chosen from the masterpage setting
+    {if $item.preferences.enableSEO.value == 'true'}
+        {if isNonnull($item.referencedLinks.bd_seo_canonical)}
+            <link rel="canonical" href="{$item.referencedLinks.bd_seo_canonical.path}"/>
+        {/if}
+        {if isNonnull($item.preferences.bd_seo_locale.value) and $item.preferences.bd_seo_locale.value != ''}
+            <meta name="locale" content="{$item.preferences.bd_seo_locale.value}"/>
+        {/if}
+        {if isNonnull($item.preferences.bd_seo_robots.value) and $item.preferences.bd_seo_robots.value != ''}
+            <meta name="robots" content="{$item.preferences.bd_seo_robots.value}"/>
+        {/if}
+        {if isNonnull($item.preferences.bd_seo_description.value) and $item.preferences.bd_seo_description.value != ''}
+            <meta name="description" content="{$item.preferences.bd_seo_description.value}"/>
+        {/if}
+    {/if}
+
+    // Favicon
+    {if isNonnull($item.preferences.favicon.value)}
+        <link href="{$ij.portalContextRoot}/{$item.preferences.favicon.value}" rel="icon"/>
+        <link href="{$ij.portalContextRoot}/{$item.preferences.favicon.value}" rel="apple-touch-icon" />
+    {/if}
+
+    {if $ij.designmode}
+        <script src="{$ij.portalContextRoot}/static/ext-lib/jquery.min.js"></script>
+        <script src="{$ij.portalContextRoot}/static/ext-lib/jquery-migrate.js"></script>
+        <script src="{$ij.portalContextRoot}/static/ext-lib/soyutils.js"></script>
+        <script src="{$ij.portalContextRoot}/static/portalclient/client.js"></script>
+        <script src="{$ij.portalContextRoot}/static/portalclient/portal_view.js"></script>
+        <script src="{$ij.portalContextRoot}/static/portalclient/compatibility.js"></script>
+        <script src="{$ij.portalContextRoot}/static/portalclient/controllers/ctrl.portal.js"></script>
+        <script src="{$ij.portalContextRoot}/static/portalclient/controllers/ctrl.preferences.js"></script>
+        <script src="{$ij.portalContextRoot}/static/portalclient/xml-lang/backbase.com.2012.view/js/all.js"></script>
+        <script src="{$ij.portalContextRoot}/static/portalclient/xml-lang/backbase.com.2013/backbase.com.2013.js"></script>
+        <script src="{$ij.portalContextRoot}/static/portalclient/xml-lang/www.w3.org.1999.xhtml/xhtml.js"></script>
+    {else}
+        <script src="{$ij.portalContextRoot}/static/templates/%5BBBHOST%5D/[name]/scripts/bb-lib.[hash].min.js"></script>
+    {/if}
+
+    {if $ij.designmode}
+        <link rel="stylesheet" href="{$ij.portalContextRoot}/static/portalclient/css/normalize.min.css"/>
+        <link rel="stylesheet" href="{$ij.portalContextRoot}/static/portalclient/css/backbase-portal.css"/>        
+    {else}
+        <link rel="stylesheet" href="{$ij.portalContextRoot}/static/templates/%5BBBHOST%5D/[name]/styles/bb-style.[hash].min.css"/>
+    {/if}
+    
+    <link rel="stylesheet" href="{$ij.portalContextRoot}/static/templates/%5BBBHOST%5D/[name]/styles/theme-{$direction}.[hash].min.css"/>
+
+    <script type="text/javascript">{\n}
+        if(!window.b$.portal.config)window.b$.portal.config = {lb}{rb};{\n}
+        b$.portal.config.serverRoot = '{$ij.portalContextRoot}';{\n}
+        b$.portal.config.resourceRoot || (window.b$.portal.config.resourceRoot = window.b$.portal.config.serverRoot);{\n}
+        b$.portal.portalName = '{$item.contextItemName}';{\n}
+        b$.portal.pageName = '{$item.name |escapeJs}';{\n}
+        b$.portal.loggedInUserId = '{$ij.authenticatedUserName |escapeJs}';{\n}
+        {if isNonnull($ij.link)}
+            b$.portal.linkUUID = '{$ij.link.uuid}';{\n}
+        {/if}
+
+        {if $ij.isManager}
+            b$.portal.loggedInUserRole = 'manager';{\n}
+        {elseif $ij.isAdmin}
+            b$.portal.loggedInUserRole = 'admin';{\n}
+        {else}
+            b$.portal.loggedInUserRole = '';{\n}
+        {/if}
+
+        b$.portal.loggedInUserGroup = [{foreach $operand in $ij.groupAuthority}'{$operand}'{if not isLast($operand)},{/if}{/foreach}];{\n}
+        // Aurora
+        if(window.be == null)  window.be = {lb}{rb};{\n}
+        be.contextRoot = b$.portal.config.serverRoot ;{\n}
+    </script>
+
+    <script src="{$ij.portalContextRoot}/static/backbase.com.2012.aurora/js/aurora-lib.min.js"></script>
+    <script src="{$ij.portalContextRoot}/static/templates/%5BBBHOST%5D/[name]/scripts/bootstrap.min.js"></script>
+    <script src="{$ij.portalContextRoot}/static/templates/%5BBBHOST%5D/[name]/scripts/react.[hash].min.js"></script>
+    <script src="{$ij.portalContextRoot}/static/templates/%5BBBHOST%5D/[name]/scripts/react-dom.[hash].min.js"></script>
+    <script src="{$ij.portalContextRoot}/static/templates/%5BBBHOST%5D/[name]/scripts/material-ui-core.[hash].min.js"></script>
+    <script src="{$ij.portalContextRoot}/static/templates/%5BBBHOST%5D/[name]/scripts/index.[hash].min.js"></script>
+    
+</head>
+<body onload="b$.portal.startup('main')">
+    <main id="main" data-pid="{$item.name}" class="bp-area --area pageContainer">
+        {foreach $child in $item.children}
+            {include($child) |noAutoescape}
+        {/foreach}
+    </main>
+</body>
+</html>
+{/template}
