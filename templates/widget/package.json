@@ -1,0 +1,40 @@
+{
+  "name": "widget-name",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "deploy": "gulp deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@material-ui/core": "^4.1.1",
+    "@material-ui/icons": "^4.2.1",
+    "bootstrap": "^4.3.1",
+    "jss-rtl": "^0.2.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@bb-cli/bb-import": "^2.5.0",
+    "@types/react": "^16.8.19",
+    "@types/react-dom": "^16.8.4",
+    "archiver": "^3.0.0",
+    "del": "^4.1.1",
+    "gulp": "^3.9.1",
+    "gulp-change": "^1.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "hash-generator": "^0.1.0",
+    "run-sequence": "^2.2.1",
+    "ts-loader": "^6.0.2",
+    "tslint": "^5.17.0",
+    "typescript": "^3.5.1",
+    "webpack": "^4.33.0"
+  }
+}
