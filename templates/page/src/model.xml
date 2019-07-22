@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+    <page>
+        <name>page-name</name>
+        <contextItemName>[BBHOST]</contextItemName>
+        <properties>
+            <property name="title">
+                <value type="string">DIRECTORY_TITLE</value>
+            </property>
+            <property name="TemplateName">
+                <value type="string">MaterialTemplate</value>
+            </property>
+            <property name="thumbnailUrl">
+                <value type="string">$(itemRoot)/media/icon.png</value>
+            </property>
+            <property name="behaviors">
+                <value type="string">be.perspective.Manager be.portalClientExt.PortalManagerPreferencesForm</value>
+            </property>
+        </properties>
+        <tags>
+            <tag>documentation</tag>
+        </tags>
+    </page>
+</catalog>
