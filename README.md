@@ -1,2 +1,2 @@
 ## run npm install
-## run baam-bb-generate
+## run generate-tmpl
