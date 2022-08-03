@@ -1,8 +1,0 @@
-{
-  "scheme": "http",
-  "host": "localhost",
-  "port": "8888",
-  "context": "portalserver",
-  "username": "admin",
-  "password": "admin"
-}

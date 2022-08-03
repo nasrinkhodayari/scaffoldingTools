@@ -37,7 +37,7 @@ const getPackageType = (packageName) => {
         type: 'list',
         name: 'name',
         message: `${packageName} package type? `,
-        choices: ['angularjs-widget', 'widget', 'page', 'template'],
+        choices: ['widget', 'page', 'template'],
       },
     ])
     .then((packageType) => {
